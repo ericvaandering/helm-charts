@@ -32,6 +32,14 @@ spec:
       - name: httpdlog
         emptyDir: {}      
       containers:
+        - name: k8s-logrotate
+          image: ericvaandering/k8s-logrotate
+          env:
+            - name: LOGROTATE_PATTERN
+              value: "/var/log/httpd/*log"
+          volumeMounts:
+          - name: httpdlog
+            mountPath: /var/log/httpd
 {{- if .Values.exposeErrorLogs.server }}
         - name: httpd-error-log
           image: busybox
