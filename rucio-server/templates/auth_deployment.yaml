@@ -46,6 +46,14 @@ spec:
           secretName: {{ .Release.Name }}-cafile
 {{- end }}
       containers:
+        - name: k8s-logrotate
+          image: ericvaandering/k8s-logrotate
+          env:
+            - name: LOGROTATE_PATTERN
+              value: "/var/log/httpd/*log"
+          volumeMounts:
+            - name: httpdlog
+              mountPath: /var/log/httpd
 {{- if .Values.exposeErrorLogs.authServer }}
         - name: httpd-error-log
           image: busybox
