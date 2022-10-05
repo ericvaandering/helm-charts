@@ -297,6 +297,7 @@ reaper:
   scheme: ""
   threads: 4
   includeRses: ""
+  skipCAVolume: false
   podAnnotations: {}
   resources:
     limits:

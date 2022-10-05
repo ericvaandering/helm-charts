@@ -91,8 +91,10 @@ spec:
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
+{{ -if not .Values.reaper.skipCAVolume}}
             - name: ca-volume
               mountPath: /etc/grid-security/certificates
+{{ -end }}
             - name: config
               mountPath: /opt/rucio/etc/rucio.config.common.json
               subPath: rucio.config.common.json
