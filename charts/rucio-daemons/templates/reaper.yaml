@@ -91,7 +91,7 @@ spec:
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
-{{ -if not .Values.reaper.skipCAVolume}}
+{{ -if not .Values.reaper.skipCAVolume }}
             - name: ca-volume
               mountPath: /etc/grid-security/certificates
 {{ -end }}
