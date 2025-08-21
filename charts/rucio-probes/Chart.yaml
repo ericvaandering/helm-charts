@@ -1,5 +1,5 @@
 apiVersion: v1
 appVersion: "1.0"
 description: Helm chart for probe cron jobs needed in Rucio
-name: rucio-probes
-version: 37.0.0
+name: rucio-probes-crontab
+version: 37.1.0
