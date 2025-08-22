@@ -76,16 +76,12 @@ spec:
         - name: RUCIO_OVERRIDE_CONFIGS
           value: "/opt/rucio/etc/conf.d/"
 {{- if .Values.probeSettings.useJobber}}
-        - configMap:
-            defaultMode: 0644
-            name: {{ include "rucio-probes.fullname" . }}-jobber-config
-          name: jobber-config
+        - name: RUCIO_USING_JOBBER
+          value: "1"
 {{- end }}
 {{- if .Values.probeSettings.useCron}}
-        - configMap:
-            defaultMode: 0644
-            name: {{ include "rucio-probes.fullname" . }}-crontab
-          name: crontab
+        - name: RUCIO_USING_CRON
+          value: "1"
 {{- end }}
         image: "{{ include "rucio.image.registry" . }}{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
