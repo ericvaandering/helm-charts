@@ -21,6 +21,8 @@ probeSettings:
   ftsProxySecret: ruciod-release-rucio-x509up
   # The path of the DeterministicDelay script
   detDelay: DeterministicDelay
+  useJobber: true
+  useCron: true
 
 probes:
   # By default all probes are turned off since they may have side effects. Set the interval to a positive number to run
