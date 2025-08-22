@@ -10,12 +10,12 @@ data:
 
 {{- range $probe, $config := .Values.probes }}
 {{ if gt $config.interval 0.0 }}
-      '*/{{ $config.interval }} * * * * {{ $.Values.probeSettings.detDelay }} -d {{ $config.interval }}m /probes/common/{{ $probe }}'
+    */{{ $config.interval }} * * * * {{ $.Values.probeSettings.detDelay }} -d {{ $config.interval }}m /probes/common/{{ $probe }}
 {{- end }}
 {{- end }}
 
 {{- range $probe, $config := .Values.voProbes }}
 {{ if gt $config.interval 0.0 }}
-      '*/{{ $config.interval }} * * * * {{ $.Values.probeSettings.detDelay }} -d {{ $config.interval }}m /probes/{{ $config.voName }}/{{ $probe }}'
+    */{{ $config.interval }} * * * * {{ $.Values.probeSettings.detDelay }} -d {{ $config.interval }}m /probes/{{ $config.voName }}/{{ $probe }}
 {{- end }}
 {{- end }}
